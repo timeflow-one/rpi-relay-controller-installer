@@ -24,6 +24,7 @@ services:
       - 8080
     volumes:
       - './database:/usr/database'
+      - './config:/usr/config'
     networks:
       - network-bridge
     command: sh -c "npm run typeorm schema:sync && npm run typeorm migration:run && npm run runtime"
