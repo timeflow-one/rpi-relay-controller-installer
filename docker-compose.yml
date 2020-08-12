@@ -26,7 +26,7 @@ services:
       - './database:/usr/database'
     networks:
       - network-bridge
-    command: npm run typeorm schema:sync && npm run typeorm migration:run && npm run runtime
+    command: sh -c "npm run typeorm schema:sync && npm run typeorm migration:run && npm run runtime"
 
   nginx:
     image: nginx:mainline-alpine
