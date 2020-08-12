@@ -1,20 +1,17 @@
 version: '3.5'
 services:
   rpi-relay-controller:
-    # image:
+    image: rpi-relay-controller
     container_name: rpi-relay-controller
     restart: unless-stopped
     privileged: true
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
     environment:
       NODE_ENV: production
       PORT: 8080
       DEFAULT_LOCK_TIMEOUT: 3000
       AVAILABLE_RELAYS: config/available_relays.json
       TYPEORM_CONNECTION: sqlite
-      TYPEORM_DATABASE: /etc/database/db.sqlite
+      TYPEORM_DATABASE: /usr/database/db.sqlite
       TYPEORM_ENTITIES: src/database/entities/*.js
       TYPEORM_MIGRATIONS: src/database/migrations/*.js
       TYPEORM_SUBSCRIBERS: src/database/subscribers/*.js
@@ -25,7 +22,7 @@ services:
     expose:
       - 8080
     volumes:
-      - './database:/etc/database'
+      - './database:/usr/database'
     networks:
       - network-bridge
     command: npm run typeorm schema:sync && npm run typeorm migration:run && npm run runtime
@@ -38,6 +35,7 @@ services:
       - 80:80
     volumes:
       - './nginx:/etc/nginx/conf.d'
+      - './page:/var/www/page'
     networks:
       - network-bridge
 
