@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   rpi-relay-controller:
-    image: rpi-relay-controller
+    image: rpi-relay-controller:latest
     container_name: rpi-relay-controller
     restart: unless-stopped
     privileged: true
