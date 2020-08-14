@@ -1,7 +1,7 @@
 # getting builded fronted
-curl https://github.com/timeflow-one/rpi-relay-controller-console/releases/download/2.0.0/rpi-relay-controller-console.tar > page/rpi-relay-controller-console.tar
+curl -L https://github.com/timeflow-one/rpi-relay-controller-console/releases/download/2.0.0/rpi-relay-controller-console.tar > page/rpi-relay-controller-console.tar
 cd page
-tar -xf rpi-relay-controller-console.tar .
+tar -xf rpi-relay-controller-console.tar
 rm rpi-relay-controller-console.tar
 cd ..
 
