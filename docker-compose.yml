@@ -10,16 +10,7 @@ services:
       PORT: 8080
       DOOR_SEPARATOR: ____
       DEFAULT_LOCK_TIMEOUT: 3000
-      AVAILABLE_RELAYS: config/available_relays.json
-      TYPEORM_CONNECTION: sqlite
-      TYPEORM_DATABASE: /usr/database/db.sqlite
-      TYPEORM_ENTITIES: src/database/entities/*.js
-      TYPEORM_MIGRATIONS: src/database/migrations/*.js
-      TYPEORM_SUBSCRIBERS: src/database/subscribers/*.js
-      TYPEORM_ENTITIES_DIR: src/database/entities
-      TYPEORM_MIGRATIONS_DIR: src/database/migrations
-      TYPEORM_SUBSCRIBERS_DIR: src/database/subscribers
-      TYPEORM_LOGGING: false
+      AVAILABLE_RELAYS: /usr/config/available_relays.json
     expose:
       - 8080
     volumes:
