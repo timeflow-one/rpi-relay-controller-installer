@@ -6,11 +6,12 @@ rm rpi-relay-controller-console.tar
 cd ..
 
 # getting docker image
+# TODO replace FILEID
 FILEID='1NHk9QwgmPbnxjh-LLLKLWxhMh74i7fRR'
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate \"https://docs.google.com/uc?export=download&id=${FILEID}\" -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=${FILEID}" -O /tmp/rpi-relay-controller.tar && rm -rf /tmp/cookies.txt
 docker load -i /tmp/rpi-relay-controller.tar
 
 # set timeflow server controll
-sed -i 's/{TIMEFLOW_PREFIX_SERVER}/ru/g' nginx/controller.conf
+sed -i 's/{TIMEFLOW_SERVER_PREFIX}/ru/g' nginx/controller.conf
 
 docker-compose up -d
