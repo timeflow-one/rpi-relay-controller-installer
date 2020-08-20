@@ -6,9 +6,8 @@ rm rpi-relay-controller-console.tar
 cd ..
 
 # getting docker image
-# TODO replace FILEID
-FILEID='13EgC5YNOh7zTKlBdeig7UuSAw8ApyOA9'
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate \"https://docs.google.com/uc?export=download&id=${FILEID}\" -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=${FILEID}" -O /tmp/rpi-relay-controller.tar && rm -rf /tmp/cookies.txt
+curl https://raw.githubusercontent.com/matthuisman/gdrivedl/master/gdrivedl.py > /tmp/gdrivedl.py
+python /tmp/gdrivedl.py https://drive.google.com/file/d/13EgC5YNOh7zTKlBdeig7UuSAw8ApyOA9/view?usp=sharing /tmp/rpi-relay-controller.tar
 docker load -i /tmp/rpi-relay-controller.tar
 
 # set timeflow server controll
