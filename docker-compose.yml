@@ -10,6 +10,7 @@ services:
       PORT: 8080
       DOOR_SEPARATOR: ____
       DEFAULT_LOCK_TIMEOUT: 3000
+      ELECTROMOTOR_TURN_TIMEOUT: 2000
       AVAILABLE_RELAYS: /usr/config/available_relays.json
     expose:
       - 8080
